@@ -1,29 +1,25 @@
-import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import React from 'react'
+import Button from '@material-ui/core/Button'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import TextField from '@material-ui/core/TextField'
+import Link from '@material-ui/core/Link'
+import Box from '@material-ui/core/Box'
+import Typography from '@material-ui/core/Typography'
+import { makeStyles } from '@material-ui/core/styles'
+import Container from '@material-ui/core/Container'
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Nahema Chat
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
+      <Link color="inherit"
+        href="https://github.com/billiejoenahema"
+        target="_blank"
+        rel="noopener">
+        Nahema
+      </Link>
     </Typography>
-  );
+  )
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -45,20 +41,17 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-}));
+}))
 
 export default function SignIn() {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
         <Typography component="h1" variant="h5">
-          サインイン
+          ようこそ
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -66,26 +59,10 @@ export default function SignIn() {
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="メールアドレス"
-            name="email"
-            autoComplete="email"
+            id="name"
+            label="ニックネーム"
+            name="name"
             autoFocus
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="パスワード"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="ログイン情報を保持する"
           />
           <Button
             type="submit"
@@ -93,26 +70,15 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            disabled
           >
-            サインイン
+            はじめる
           </Button>
-          <Grid container>
-            <Grid item>
-              <Link href="#" variant="body2">
-                パスワードをお忘れですか?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {"アカウントをお持ちでない方はこちら"}
-              </Link>
-            </Grid>
-          </Grid>
         </form>
       </div>
       <Box mt={8}>
         <Copyright />
       </Box>
     </Container>
-  );
+  )
 }
