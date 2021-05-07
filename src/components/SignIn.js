@@ -43,14 +43,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function SignIn({ setName }) {
+const SignIn = React.memo(({ setName }) => {
   const classes = useStyles()
   const [disabled, setDisabled] = useState(true)
   const [string, setString] = useState('')
   console.log({ string })
 
   useEffect(() => {
-    const isInputted = string === ''
+    const isInputted = (string === '')
     setDisabled(isInputted)
   }, [string])
 
@@ -90,4 +90,6 @@ export default function SignIn({ setName }) {
       </Box>
     </Container>
   )
-}
+})
+
+export default SignIn
