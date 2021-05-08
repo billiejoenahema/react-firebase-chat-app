@@ -47,7 +47,7 @@ const SignIn = React.memo(({ setName }) => {
   const classes = useStyles()
   const [disabled, setDisabled] = useState(true)
   const [string, setString] = useState('')
-  console.log({ disabled, string })
+  const [isComposed, setIsComposed] = useState(false)
 
   useEffect(() => {
     const isInputted = (string === '')
@@ -73,11 +73,14 @@ const SignIn = React.memo(({ setName }) => {
             autoFocus
             onChange={(e) => setString(e.target.value)}
             onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                e.preventDefault()
+              // 文字変換中でなければEnterを押した時にニックネーム確定
+              if (e.key === 'Enter' && !isComposed) {
                 setName(e.target.value)
+                e.preventDefault()
               }
             }}
+            onCompositionStart={() => setIsComposed(true)}
+            onCompositionEnd={() => setIsComposed(false)}
           />
           <Button
             type="button"
