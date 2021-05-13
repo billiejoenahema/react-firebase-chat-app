@@ -1,13 +1,23 @@
 import firebase from 'firebase'
 
+const {
+  REACT_APP_FIREBASE_APIKEY,
+  REACT_APP_FIREBASE_AUTH_DOMAIN,
+  REACT_APP_FIREBASE_DATABASE_URL,
+  REACT_APP_FIREBASE_PROJECT_ID,
+  REACT_APP_FIREBASE_STORAGE_BUCKET,
+  REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  REACT_APP_FIREBASE_APP_ID
+} = process.env
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCrJkfmp6X6xyO6fhocuYj4yzD4MfZx6qo",
-  authDomain: "myfirebasechatapp-e43d9.firebaseapp.com",
-  databaseURL: "https://myfirebasechatapp-e43d9.firebaseio.com",
-  projectId: "myfirebasechatapp-e43d9",
-  storageBucket: "myfirebasechatapp-e43d9.appspot.com",
-  messagingSenderId: "754543377583",
-  appId: "1:754543377583:web:d7c982240f6c00bdf1e85a",
+  apiKey: REACT_APP_FIREBASE_APIKEY,
+  authDomain: REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: REACT_APP_FIREBASE_APP_ID,
 }
 firebase.initializeApp(firebaseConfig)
 const database = firebase.database()
