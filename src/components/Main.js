@@ -1,5 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import NavigationBar from './NavigationBar'
 import MessageList from './MessageList'
 import MessageInputField from './MessageInputField'
 
@@ -16,6 +17,7 @@ const Main = ({ name }) => {
 
   return (
     <div className={classes.root}>
+      <NavigationBar />
       <MessageList />
       <MessageInputField name={name} />
     </div>
