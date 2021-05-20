@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-const MessageItem = ({ isLastItem, name, text }) => {
+const MessageItem = React.memo(({ isLastItem, name, text }) => {
   const ref = useRef(null)
   const classes = useStyles()
   const avatarPath = gravatarPath(name)
@@ -48,6 +48,6 @@ const MessageItem = ({ isLastItem, name, text }) => {
       />
     </ListItem>
   )
-}
+})
 
 export default MessageItem
