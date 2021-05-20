@@ -20,7 +20,7 @@ const MessageList = () => {
   useEffect(() => {
     messagesRef
       .orderByKey()
-      .limitToLast(10)
+      .limitToLast(12)
       .on('value', (snapshot) => {
         const messages = snapshot.val()
 
@@ -34,15 +34,20 @@ const MessageList = () => {
         setMessages(newMessages)
       })
   }, [])
+
+  const length = messages.length
+
   return (
     <List className={classes.root}>
       {
-        messages.map(({ key, name, text }) => {
+        messages.map(({ key, name, text }, index) => {
+          const isLastItem = length === index + 1
           return (
             <MessageItem
               key={key}
               name={name}
               text={text}
+              isLastItem={isLastItem}
             />
           )
         })
