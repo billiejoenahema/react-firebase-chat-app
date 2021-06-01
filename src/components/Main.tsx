@@ -12,13 +12,17 @@ const useStyles = makeStyles({
   },
 })
 
-const Main = ({ name }) => {
+type Props = {
+  name: string
+}
+
+const Main: React.VFC<Props> = ({ name }) => {
   const classes = useStyles()
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} >
       <NavigationBar />
-      <MessageList />
+      < MessageList />
       <MessageInputField name={name} />
     </div>
   )
