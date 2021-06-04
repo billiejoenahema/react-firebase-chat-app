@@ -4,7 +4,7 @@ import Main from './Main'
 import config from '../config.json'
 
 export default () => {
-  const [name, setName] = useState('')
+  const [name, setName] = useState<string>('')
 
   return (
     (name === '' && config.signInEnabled) ?
